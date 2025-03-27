@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 // components
 import PromptBox from "./components/PromptBox"
+import DataSelector from './components/DataSelector';
 
 function App() {
   const [prompt, setPrompt] = useState(null);
@@ -20,14 +21,15 @@ function App() {
     console.log("response object", res);
   }
 
-  const handleOnPromptChanged = () => {
-    console.log("prompt changed")
+  const handleOnPromptChanged = (text) => {
+    setPrompt(text);
+    console.log(prompt)
   }
 
   return (
     <div className="App">
-      <h1>Prompt Box</h1>
-      <PromptBox onReponse={handleOnResponse} onPromptChanged={handleOnPromptChanged} />
+      <DataSelector />
+      <PromptBox onResponse={handleOnResponse} onPromptChanged={handleOnPromptChanged} />
     </div>
   );
 }
