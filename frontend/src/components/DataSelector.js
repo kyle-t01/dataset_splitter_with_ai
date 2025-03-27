@@ -1,5 +1,6 @@
 // component where user can select datasets
 import { useState } from "react";
+import FileUploader from "./FileUploader";
 
 
 
@@ -37,11 +38,18 @@ const DataSelector = () => {
         );
     }
 
+    const renderFileUploader = () => {
+        if (option != options.length - 1) return;
+        return (
+            <FileUploader />
+        );
+    }
+
     return (
         <div className="data-selector">
             <h1>Select Dataset</h1>
             {renderOptions()}
-            {/* todo: render file uploader */}
+            {renderFileUploader()}
         </div>
     );
 }
