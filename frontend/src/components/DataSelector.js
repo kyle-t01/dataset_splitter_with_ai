@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 
-const DataSelector = ({ onResponse, onPromptChanged }) => {
+const DataSelector = () => {
     const [option, setOption] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     // max file size in kb
@@ -25,7 +25,7 @@ const DataSelector = ({ onResponse, onPromptChanged }) => {
 
     const renderOption = (i) => {
         return (
-            <label>
+            <label key={i}>
                 <input
                     type="radio"
                     name="dataset"
@@ -34,7 +34,7 @@ const DataSelector = ({ onResponse, onPromptChanged }) => {
                 />
                 {options[i]}
             </label>
-        )
+        );
     }
 
     return (
