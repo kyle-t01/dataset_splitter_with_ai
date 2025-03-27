@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 // components
 import PromptBox from "./components/PromptBox"
 import DataSelector from './components/DataSelector';
+import FileUploader from './components/FileUploader';
 
 function App() {
   const [prompt, setPrompt] = useState(null);
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <DataSelector />
+      <FileUploader />
       <PromptBox onResponse={handleOnResponse} onPromptChanged={handleOnPromptChanged} />
     </div>
   );
