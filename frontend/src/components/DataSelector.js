@@ -1,15 +1,17 @@
 // component where user can select datasets
 import { useState } from "react";
 import FileUploader from "./FileUploader";
+import { GlobalVars } from "../context/GlobalContext";
 
 
 
 const DataSelector = () => {
-    const [option, setOption] = useState(0);
+    const { option, setOption } = GlobalVars();
+    const { options } = GlobalVars();
     const [isLoading, setIsLoading] = useState(false);
     // max file size in kb
     const maxFileSize = 300;
-    const options = ["language-flash-cards", "unorganised-to-do-list", "sample-dataset3", "upload your own!"];
+
 
     const handleChangeOption = (val) => {
         setOption(val);
