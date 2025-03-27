@@ -1,24 +1,32 @@
 // component where user queries are sent 
 import { useState } from "react";
 import { fetchAIResponse } from "../services/aiServices";
+import { GlobalVars } from "../context/GlobalContext";
 
 
-const PromptBox = ({ onResponse, onPromptChanged }) => {
-    const [prompt, setPrompt] = useState("");
+
+const PromptBox = () => {
+
+    // global state
+    const { prompt, setPrompt } = GlobalVars();
+    const { setResponseAI } = GlobalVars();
+
+    // local state
     const [isLoading, setIsLoading] = useState(false);
     const maxChars = 300;
 
     const handleSubmitPrompt = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        console.log("handleSubmitPrompt() called");
+        console.log("handleSubmitPrompt() called for prompt:", prompt);
         // send user prompt, and get a response
         // try-catch
         const response = await fetchAIResponse("null");
         if (response) {
-            onResponse(response)
+            console.log("got a response: ", response)
+            setResponseAI(response)
         }
-        console.log(response);
+
         setIsLoading(false);
     }
     return (
@@ -28,11 +36,9 @@ const PromptBox = ({ onResponse, onPromptChanged }) => {
                 className="input"
                 type="text"
                 placeholder="Enter instructions on how data should be split here..."
-
                 value={prompt}
-                // onChange, also do onPromptChanged
-                onChange={(e) => { setPrompt(e.target.value); onPromptChanged(e.target.value) }}
-                rows={3}
+                onChange={(e) => { setPrompt(e.target.value) }}
+                rows={4}
                 maxLength={maxChars}
             />
             <div className="char-counter">
