@@ -7,11 +7,13 @@ const GlobalContext = createContext();
 export const GlobalContextProvider = ({ children }) => {
 
     const [prompt, setPrompt] = useState("");
+    const [responseAI, setResponseAI] = useState(null);
+
     //const [file, setFile] = useState(null);
 
     return (
         <GlobalContext.Provider
-            value={{ prompt, setPrompt }}>
+            value={{ prompt, setPrompt, responseAI, setResponseAI }}>
             {children}
         </GlobalContext.Provider>
     );
