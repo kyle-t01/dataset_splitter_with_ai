@@ -23,6 +23,7 @@ const PromptBox = ({ onResponse, onPromptChanged }) => {
     }
     return (
         <div className="prompt-bar">
+            <h1>Prompt Box</h1>
             <textarea
                 className="input"
                 type="text"
