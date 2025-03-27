@@ -1,10 +1,11 @@
 // component where user can select datasets
 import { useState } from "react";
+import { GlobalVars } from "../context/GlobalContext";
 
 
 
 const FileUploader = () => {
-    const [file, setFile] = useState(null);
+    const { setFile } = GlobalVars()
     const [isLoading, setIsLoading] = useState(false);
     // max file size in kb
     const maxFileSize = 300;
@@ -22,6 +23,7 @@ const FileUploader = () => {
         }
 
         // todo, more file validation checks
+
 
         // file size
 
