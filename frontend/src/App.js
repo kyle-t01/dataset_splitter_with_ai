@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import PromptBox from "./components/PromptBox"
 import DataSelector from './components/DataSelector';
 import FileUploader from './components/FileUploader';
+import DataPreview from './components/DataPreview';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <DataSelector />
+      <DataPreview />
       <PromptBox />
     </div>
   );
