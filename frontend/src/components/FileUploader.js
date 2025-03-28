@@ -10,7 +10,6 @@ const FileUploader = () => {
     // max file size in kb
     const maxFileSize = 300;
 
-
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
 
@@ -33,10 +32,6 @@ const FileUploader = () => {
         return;
     }
 
-    const handleUploadFile = () => {
-        console.log("file uploaded")
-    }
-
     return (
         <div className="file-uploader">
 
@@ -44,10 +39,7 @@ const FileUploader = () => {
                 type="file"
                 accept=".csv,.tsv,.txt"
                 onChange={handleFileChange}
-
             />
-            {/* todo: consider app.js to handle file upload itself */}
-            <button onClick={handleUploadFile}>Upload</button>
 
         </div>
     );
