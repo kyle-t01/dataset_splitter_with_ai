@@ -10,6 +10,7 @@ const PromptBox = () => {
     // global state
     const { prompt, setPrompt } = GlobalVars();
     const { setResponseAI } = GlobalVars();
+    const { lines, setLines } = GlobalVars();
 
     // local state
     const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +22,7 @@ const PromptBox = () => {
         console.log("handleSubmitPrompt() called for prompt:", prompt);
         // send user prompt, and get a response
         // try-catch
-        const response = await fetchAIResponse("null");
+        const response = await fetchAIResponse(lines, prompt);
         if (response) {
             console.log("got a response: ", response)
             setResponseAI(response)
