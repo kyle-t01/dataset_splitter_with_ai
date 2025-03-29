@@ -12,6 +12,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [file, setFile] = useState(null);
     const [option, setOption] = useState(0);
     const options = ["language-flash-cards", "unorganised-to-do-list", "sample-dataset3", "upload your own!"];
+    const [lines, setLines] = useState(null);
 
     return (
         <GlobalContext.Provider
@@ -21,6 +22,7 @@ export const GlobalContextProvider = ({ children }) => {
                 file, setFile,
                 option, setOption,
                 options,
+                lines, setLines,
             }}>
             {children}
         </GlobalContext.Provider>
