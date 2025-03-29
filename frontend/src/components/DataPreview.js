@@ -9,7 +9,7 @@ const DataPreview = () => {
     const { options } = GlobalVars();
     const { file } = GlobalVars();
     const [isLoading, setIsLoading] = useState(false);
-    const [lines, setLines] = useState(null);
+    const { lines, setLines } = GlobalVars();
     const [numRows, setNumRows] = useState(10);
 
     useEffect(() => {
@@ -19,6 +19,7 @@ const DataPreview = () => {
 
     // read an entire text file into lines
     const readFile = () => {
+
         if (!file) { console.log("no file detected!"); return; }
         setLines(null);
         const reader = new FileReader();
@@ -61,8 +62,8 @@ const DataPreview = () => {
         return (
             <label key={i}>
                 <div className="line">
-                    <p>{i}</p>
-                    <p>{l}</p>
+                    <p>[{i}]: {l}</p>
+
                 </div>
             </label>
         );
