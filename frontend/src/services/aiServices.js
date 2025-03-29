@@ -1,4 +1,4 @@
-export const fetchAIResponse = async (prompt) => {
+export const fetchAIResponse = async (data, prompt) => {
     console.log("fetching AI response...");
     try {
 
@@ -15,7 +15,8 @@ export const fetchAIResponse = async (prompt) => {
 
         requestOptions.body = JSON.stringify({
             prompt: prompt,
-            // TODO: add DATA
+            data: data,
+
         });
 
         const url = process.env.REACT_APP_LF_AI;
@@ -25,7 +26,7 @@ export const fetchAIResponse = async (prompt) => {
             const data = await response.json();
             return data;
         } else {
-            console.error("Lambda function call failed!", response.status);
+            console.error("Lambda function call failed!", response);
         };
     } catch (error) {
         console.log("error:", error);
